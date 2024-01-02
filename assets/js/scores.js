@@ -16,5 +16,4 @@ function saveHighscore() {
   function clearHighscores() {
     localStorage.removeItem("highscores");
     // Update the display
-  }
-  
+  }  

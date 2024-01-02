@@ -18,6 +18,19 @@
       <button id="clear">Clear Highscores</button>
     </div>
 
-    <script src="./assets/js/scores.js"></script>
+    <script src="./assets/js/scores.js">
+      function loadHighscores() {
+    const highscoresList = document.getElementById("highscores");
+    const highscores = JSON.parse(localStorage.getItem("highscores")) || [];
+
+    highscoresList.innerHTML = ''; // Clear existing list
+
+    highscores.forEach(score => {
+        const li = document.createElement('li');
+        li.textContent = `${score.initials} - ${score.score}`;
+        highscoresList.appendChild(li);
+    });
+}
+    </script>
   </body>
 </html>
