@@ -45,6 +45,12 @@ function checkAnswer(answer) {
         time -= 10; // Penalize time for incorrect answer
       }
 
+  // Show feedback for a short duration
+  feedbackEl.classList.remove('hide');
+  setTimeout(() => {
+    feedbackEl.classList.add('hide');
+    feedbackEl.classList.remove('correct', 'incorrect');
+
     // if (answer !== questions[currentQuestionIndex].answer) {
     //   // Penalize time
     //   time -= 10;
