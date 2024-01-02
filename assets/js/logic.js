@@ -12,3 +12,20 @@ function startQuiz() {
   
     displayQuestion();
   }
+
+// Display current question
+function displayQuestion() {
+    const currentQuestion = questions[currentQuestionIndex];
+    document.getElementById("question-title").textContent = currentQuestion.title;
+  
+    const choicesContainer = document.getElementById("choices");
+    choicesContainer.innerHTML = ''; // Clear previous choices
+  
+    currentQuestion.choices.forEach(choice => {
+        const button = document.createElement('button');
+        button.classList.add('choice-button');
+        button.textContent = choice;
+        button.addEventListener('click', () => checkAnswer(choice));
+        choicesContainer.appendChild(button);
+    });
+  }
