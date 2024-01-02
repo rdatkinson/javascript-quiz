@@ -29,7 +29,13 @@ function clearHighscores() {
     loadHighscores(); // Refresh the list display
 }
 
-  document.getElementById('clear').addEventListener('click', () => {
-    localStorage.removeItem("highscores");
-    loadHighscores(); // Refresh the list display
+// Event listener for DOMContentLoaded to load highscores when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    loadHighscores();
+
+    // Add event listener to the clear highscores button
+    const clearButton = document.getElementById("clear");
+    if (clearButton) {
+        clearButton.addEventListener('click', clearHighscores);
+    }
 });
