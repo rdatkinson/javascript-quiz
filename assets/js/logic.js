@@ -33,15 +33,19 @@ function displayQuestion() {
 // Check answer
 function checkAnswer(answer) {
     let feedbackEl = document.getElementById('feedback');
+    let correctSound = document.getElementById('correct-sound');
+    let incorrectSound = document.getElementById('incorrect-sound');
   
     if (answer === questions[currentQuestionIndex].answer) {
       // Correct answer
       feedbackEl.textContent = "Correct!";
       feedbackEl.classList.add('correct');
+      correctSound.play(); // Play correct sound
     } else {
       // Incorrect answer
       feedbackEl.textContent = "Wrong!";
       feedbackEl.classList.add('incorrect');
+      incorrectSound.play(); // Play incorrect sound
       time -= 10; // Penalize time for incorrect answer
     }
   
