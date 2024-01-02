@@ -32,17 +32,30 @@ function displayQuestion() {
 
 // Check answer
 function checkAnswer(answer) {
-    if (answer !== questions[currentQuestionIndex].answer) {
-      // Penalize time
-      time -= 10;
-    }
+    let feedbackEl = document.getElementById('feedback');
+
+    if (answer === questions[currentQuestionIndex].answer) {
+        // Correct answer
+        feedbackEl.textContent = "Correct!";
+        feedbackEl.classList.add('correct');
+      } else {
+        // Incorrect answer
+        feedbackEl.textContent = "Wrong!";
+        feedbackEl.classList.add('incorrect');
+        time -= 10; // Penalize time for incorrect answer
+      }
+
+    // if (answer !== questions[currentQuestionIndex].answer) {
+    //   // Penalize time
+    //   time -= 10;
+    // }
   
-    currentQuestionIndex++;
-    if (currentQuestionIndex === questions.length) {
-      endQuiz();
-    } else {
-      displayQuestion();
-    }
+    // currentQuestionIndex++;
+    // if (currentQuestionIndex === questions.length) {
+    //   endQuiz();
+    // } else {
+    //   displayQuestion();
+    // }
   }
 
 // Timer tick
@@ -73,7 +86,7 @@ function saveHighscore() {
     }
   }
 
-// Event listeners
+  // Event listeners
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('start').addEventListener('click', startQuiz);
   

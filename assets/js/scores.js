@@ -7,3 +7,14 @@ function saveHighscore() {
       localStorage.setItem("highscores", JSON.stringify(highscores));
     }
   }
+  
+  function loadHighscores() {
+    const highscores = JSON.parse(localStorage.getItem("highscores")) || [];
+    // Display these scores on the highscores page
+  }
+  
+  function clearHighscores() {
+    localStorage.removeItem("highscores");
+    // Update the display
+  }
+  
