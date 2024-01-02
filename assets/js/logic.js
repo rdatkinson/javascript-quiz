@@ -44,3 +44,12 @@ function checkAnswer(answer) {
       displayQuestion();
     }
   }
+
+// Timer tick
+function clockTick() {
+    time--;
+    document.getElementById("time").textContent = time;
+    if (time <= 0) {
+      endQuiz();
+    }
+  }
