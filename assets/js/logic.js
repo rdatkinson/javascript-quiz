@@ -53,3 +53,11 @@ function clockTick() {
       endQuiz();
     }
   }
+
+// End quiz
+function endQuiz() {
+    clearInterval(timerId);
+    document.getElementById("questions").classList.add("hide");
+    document.getElementById("end-screen").classList.remove("hide");
+    document.getElementById("final-score").textContent = time;
+  }
