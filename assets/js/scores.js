@@ -8,12 +8,27 @@ function saveHighscore() {
     }
   }
   
-  function loadHighscores() {
+// Function to load highscores from local storage and display them
+function loadHighscores() {
+    const highscoresList = document.getElementById("highscores");
     const highscores = JSON.parse(localStorage.getItem("highscores")) || [];
-    // Display these scores on the highscores page
-  }
+
+    highscoresList.innerHTML = ''; // Clear the existing list
+
+    // Create a list item for each highscore and append it to the highscores list
+    highscores.forEach(score => {
+        const li = document.createElement('li');
+        li.textContent = `${score.initials} - ${score.score}`;
+        highscoresList.appendChild(li);
+    });
+}
   
   function clearHighscores() {
     localStorage.removeItem("highscores");
     // Update the display
   }  
+
+  document.getElementById('clear').addEventListener('click', () => {
+    localStorage.removeItem("highscores");
+    loadHighscores(); // Refresh the list display
+});

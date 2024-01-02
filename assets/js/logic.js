@@ -86,15 +86,15 @@ function endQuiz() {
 function saveHighscore() {
     const initials = document.getElementById("initials").value.trim();
     if (initials !== "") {
-      const highscores = JSON.parse(localStorage.getItem("highscores")) || [];
-      const newScore = { score: time, initials };
-      highscores.push(newScore);
-      localStorage.setItem("highscores", JSON.stringify(highscores));
-      window.location.href = 'highscores.html';
+        const highscores = JSON.parse(localStorage.getItem("highscores")) || [];
+        const newScore = { score: time, initials };
+        highscores.push(newScore);
+        localStorage.setItem("highscores", JSON.stringify(highscores));
+        window.location.href = 'highscores.html'; // Redirect after saving
     } else {
         alert("Please enter your initials!");
     }
-  }
+}
 
 // Event listeners
 document.addEventListener('DOMContentLoaded', () => {
