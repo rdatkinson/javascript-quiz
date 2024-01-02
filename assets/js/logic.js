@@ -33,45 +33,32 @@ function displayQuestion() {
 // Check answer
 function checkAnswer(answer) {
     let feedbackEl = document.getElementById('feedback');
-
-    if (answer === questions[currentQuestionIndex].answer) {
-        // Correct answer
-        feedbackEl.textContent = "Correct!";
-        feedbackEl.classList.add('correct');
-      } else {
-        // Incorrect answer
-        feedbackEl.textContent = "Wrong!";
-        feedbackEl.classList.add('incorrect');
-        time -= 10; // Penalize time for incorrect answer
-      }
-
-  // Show feedback for a short duration
-  feedbackEl.classList.remove('hide');
-  setTimeout(() => {
-    feedbackEl.classList.add('hide');
-    feedbackEl.classList.remove('correct', 'incorrect');
-
-// Move to next question or end quiz
-    currentQuestionIndex++;
-    if (currentQuestionIndex === questions.length) {
-      endQuiz();
-    } else {
-      displayQuestion();
-    }
-  }, 1000); // Adjust the timing as needed
-}
-
-    // if (answer !== questions[currentQuestionIndex].answer) {
-    //   // Penalize time
-    //   time -= 10;
-    // }
   
-    // currentQuestionIndex++;
-    // if (currentQuestionIndex === questions.length) {
-    //   endQuiz();
-    // } else {
-    //   displayQuestion();
-    // }
+    if (answer === questions[currentQuestionIndex].answer) {
+      // Correct answer
+      feedbackEl.textContent = "Correct!";
+      feedbackEl.classList.add('correct');
+    } else {
+      // Incorrect answer
+      feedbackEl.textContent = "Wrong!";
+      feedbackEl.classList.add('incorrect');
+      time -= 10; // Penalize time for incorrect answer
+    }
+  
+    // Show feedback for a short duration
+    feedbackEl.classList.remove('hide');
+    setTimeout(() => {
+      feedbackEl.classList.add('hide');
+      feedbackEl.classList.remove('correct', 'incorrect'); // Clear styles
+  
+      // Move to next question or end quiz
+      currentQuestionIndex++;
+      if (currentQuestionIndex === questions.length) {
+        endQuiz();
+      } else {
+        displayQuestion();
+      }
+    }, 1000);
   }
 
 // Timer tick
