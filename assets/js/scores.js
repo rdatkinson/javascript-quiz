@@ -23,10 +23,11 @@ function loadHighscores() {
     });
 }
   
-  function clearHighscores() {
-    localStorage.removeItem("highscores");
-    // Update the display
-  }  
+// Function to clear highscores from local storage and the display
+function clearHighscores() {
+    localStorage.removeItem("highscores"); // Remove highscores from local storage
+    loadHighscores(); // Refresh the list display
+}
 
   document.getElementById('clear').addEventListener('click', () => {
     localStorage.removeItem("highscores");
