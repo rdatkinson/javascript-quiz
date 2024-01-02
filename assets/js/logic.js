@@ -51,6 +51,16 @@ function checkAnswer(answer) {
     feedbackEl.classList.add('hide');
     feedbackEl.classList.remove('correct', 'incorrect');
 
+// Move to next question or end quiz
+    currentQuestionIndex++;
+    if (currentQuestionIndex === questions.length) {
+      endQuiz();
+    } else {
+      displayQuestion();
+    }
+  }, 1000); // Adjust the timing as needed
+}
+
     // if (answer !== questions[currentQuestionIndex].answer) {
     //   // Penalize time
     //   time -= 10;
