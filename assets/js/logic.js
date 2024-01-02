@@ -72,4 +72,14 @@ function saveHighscore() {
       localStorage.setItem("highscores", JSON.stringify(highscores));
     }
   }
+
+// Event listeners
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('start').addEventListener('click', startQuiz);
+  
+    document.getElementById('submit').addEventListener('click', function(event) {
+      event.preventDefault();
+      saveHighscore();
+    });
+  });
   
