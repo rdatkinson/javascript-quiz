@@ -1,7 +1,7 @@
 # javascript-quiz
 
 ## Description
-This project is a timed quiz on JavaScript, designed to test web developers knowledge against the clock.
+This project is a timed quiz on JavaScript, designed to test web developers knowledge against the clock. The deployed application can be viewed via this link: https://rdatkinson.github.io/javascript-quiz/
 
 ## Installation
 N/A
