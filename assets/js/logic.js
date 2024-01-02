@@ -93,13 +93,14 @@ function saveHighscore() {
     }
   }
 
-  // Event listeners
+// Event listeners
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('start').addEventListener('click', startQuiz);
   
     document.getElementById('submit').addEventListener('click', function(event) {
       event.preventDefault();
       saveHighscore();
+      window.location.href = 'highscores.html'; // Redirect to highscores page
     });
   });
   
