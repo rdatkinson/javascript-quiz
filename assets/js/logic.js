@@ -29,3 +29,18 @@ function displayQuestion() {
         choicesContainer.appendChild(button);
     });
   }
+
+// Check answer
+function checkAnswer(answer) {
+    if (answer !== questions[currentQuestionIndex].answer) {
+      // Penalize time
+      time -= 10;
+    }
+  
+    currentQuestionIndex++;
+    if (currentQuestionIndex === questions.length) {
+      endQuiz();
+    } else {
+      displayQuestion();
+    }
+  }
